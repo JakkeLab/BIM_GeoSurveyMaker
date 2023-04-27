@@ -1,0 +1,17 @@
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\bin\Debug\net6.0-windows\GeoSurveyMaker.exe
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\bin\Debug\net6.0-windows\GeoSurveyMaker.deps.json
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\bin\Debug\net6.0-windows\GeoSurveyMaker.runtimeconfig.json
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\bin\Debug\net6.0-windows\GeoSurveyMaker.dll
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\bin\Debug\net6.0-windows\GeoSurveyMaker.pdb
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.csproj.AssemblyReference.cache
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.MainForm.resources
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.csproj.GenerateResource.cache
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.AssemblyInfoInputs.cache
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.AssemblyInfo.cs
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.csproj.CoreCompileInputs.cache
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.dll
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\refint\GeoSurveyMaker.dll
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.pdb
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\GeoSurveyMaker.genruntimeconfig.cache
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyMaker\obj\Debug\net6.0-windows\ref\GeoSurveyMaker.dll
