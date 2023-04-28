@@ -30,12 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.새파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.다른이름으로저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.편집ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.프로젝트명ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CloseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgBorings = new System.Windows.Forms.DataGridView();
             this.ColNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +49,8 @@
             this.lbLayers = new System.Windows.Forms.Label();
             this.lbBoringName = new System.Windows.Forms.Label();
             this.tbBoringName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbBoringTop = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBorings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgLayers)).BeginInit();
@@ -60,8 +60,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.파일ToolStripMenuItem,
-            this.편집ToolStripMenuItem});
+            this.파일ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1118, 24);
@@ -71,56 +70,48 @@
             // 파일ToolStripMenuItem
             // 
             this.파일ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.새파일ToolStripMenuItem,
-            this.저장ToolStripMenuItem,
-            this.다른이름으로저장ToolStripMenuItem,
-            this.닫기ToolStripMenuItem});
+            this.newFileToolStripMenuItem,
+            this.loadFileToolStripMenuItem,
+            this.exportFileToolStripMenuItem,
+            this.CloseAppToolStripMenuItem});
             this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
             this.파일ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.파일ToolStripMenuItem.Text = "파일";
             // 
-            // 새파일ToolStripMenuItem
+            // newFileToolStripMenuItem
             // 
-            this.새파일ToolStripMenuItem.Name = "새파일ToolStripMenuItem";
-            this.새파일ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.새파일ToolStripMenuItem.Text = "새 파일";
+            this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newFileToolStripMenuItem.Text = "새 파일";
+            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
-            // 저장ToolStripMenuItem
+            // loadFileToolStripMenuItem
             // 
-            this.저장ToolStripMenuItem.Name = "저장ToolStripMenuItem";
-            this.저장ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.저장ToolStripMenuItem.Text = "저장";
+            this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadFileToolStripMenuItem.Text = "불러오기";
+            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
-            // 다른이름으로저장ToolStripMenuItem
+            // exportFileToolStripMenuItem
             // 
-            this.다른이름으로저장ToolStripMenuItem.Name = "다른이름으로저장ToolStripMenuItem";
-            this.다른이름으로저장ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.다른이름으로저장ToolStripMenuItem.Text = "다른 이름으로 저장";
+            this.exportFileToolStripMenuItem.Name = "exportFileToolStripMenuItem";
+            this.exportFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportFileToolStripMenuItem.Text = "내보내기";
+            this.exportFileToolStripMenuItem.Click += new System.EventHandler(this.exportFileToolStripMenuItem_Click);
             // 
-            // 닫기ToolStripMenuItem
+            // CloseAppToolStripMenuItem
             // 
-            this.닫기ToolStripMenuItem.Name = "닫기ToolStripMenuItem";
-            this.닫기ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.닫기ToolStripMenuItem.Text = "닫기";
-            // 
-            // 편집ToolStripMenuItem
-            // 
-            this.편집ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.프로젝트명ToolStripMenuItem});
-            this.편집ToolStripMenuItem.Name = "편집ToolStripMenuItem";
-            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.편집ToolStripMenuItem.Text = "편집";
-            // 
-            // 프로젝트명ToolStripMenuItem
-            // 
-            this.프로젝트명ToolStripMenuItem.Name = "프로젝트명ToolStripMenuItem";
-            this.프로젝트명ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.프로젝트명ToolStripMenuItem.Text = "프로젝트 명";
+            this.CloseAppToolStripMenuItem.Name = "CloseAppToolStripMenuItem";
+            this.CloseAppToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CloseAppToolStripMenuItem.Text = "닫기";
+            this.CloseAppToolStripMenuItem.Click += new System.EventHandler(this.CloseAppToolStripMenuItem_Click);
             // 
             // dgBorings
             // 
             this.dgBorings.AllowUserToAddRows = false;
             this.dgBorings.AllowUserToDeleteRows = false;
+            this.dgBorings.AllowUserToResizeColumns = false;
+            this.dgBorings.AllowUserToResizeRows = false;
             this.dgBorings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBorings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColNumber,
@@ -164,6 +155,7 @@
             this.listBorings.ItemHeight = 15;
             this.listBorings.Location = new System.Drawing.Point(727, 49);
             this.listBorings.Name = "listBorings";
+            this.listBorings.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBorings.Size = new System.Drawing.Size(120, 394);
             this.listBorings.TabIndex = 3;
             this.listBorings.SelectedIndexChanged += new System.EventHandler(this.listBorings_SelectedIndexChanged);
@@ -194,12 +186,13 @@
             this.dgLayers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColLayerName,
             this.ColDepth});
-            this.dgLayers.Location = new System.Drawing.Point(860, 118);
+            this.dgLayers.Location = new System.Drawing.Point(860, 150);
             this.dgLayers.Name = "dgLayers";
             this.dgLayers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgLayers.RowTemplate.Height = 25;
-            this.dgLayers.Size = new System.Drawing.Size(244, 295);
+            this.dgLayers.Size = new System.Drawing.Size(244, 263);
             this.dgLayers.TabIndex = 6;
+            this.dgLayers.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgLayers_EditingControlShowing);
             // 
             // ColLayerName
             // 
@@ -237,7 +230,7 @@
             // lbLayers
             // 
             this.lbLayers.AutoSize = true;
-            this.lbLayers.Location = new System.Drawing.Point(860, 100);
+            this.lbLayers.Location = new System.Drawing.Point(860, 132);
             this.lbLayers.Name = "lbLayers";
             this.lbLayers.Size = new System.Drawing.Size(59, 15);
             this.lbLayers.TabIndex = 10;
@@ -259,11 +252,31 @@
             this.tbBoringName.Size = new System.Drawing.Size(179, 23);
             this.tbBoringName.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(860, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "지반 표고";
+            // 
+            // tbBoringTop
+            // 
+            this.tbBoringTop.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.tbBoringTop.Location = new System.Drawing.Point(925, 96);
+            this.tbBoringTop.Name = "tbBoringTop";
+            this.tbBoringTop.Size = new System.Drawing.Size(179, 23);
+            this.tbBoringTop.TabIndex = 14;
+            this.tbBoringTop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputOnlyDouble_KeyPress);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 461);
+            this.Controls.Add(this.tbBoringTop);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbBoringName);
             this.Controls.Add(this.lbBoringName);
             this.Controls.Add(this.lbLayers);
@@ -276,9 +289,11 @@
             this.Controls.Add(this.lbBoringTable);
             this.Controls.Add(this.dgBorings);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "SurveyMaker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBorings)).EndInit();
@@ -292,12 +307,9 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem 파일ToolStripMenuItem;
-        private ToolStripMenuItem 새파일ToolStripMenuItem;
-        private ToolStripMenuItem 저장ToolStripMenuItem;
-        private ToolStripMenuItem 다른이름으로저장ToolStripMenuItem;
-        private ToolStripMenuItem 닫기ToolStripMenuItem;
-        private ToolStripMenuItem 편집ToolStripMenuItem;
-        private ToolStripMenuItem 프로젝트명ToolStripMenuItem;
+        private ToolStripMenuItem newFileToolStripMenuItem;
+        private ToolStripMenuItem exportFileToolStripMenuItem;
+        private ToolStripMenuItem CloseAppToolStripMenuItem;
         private DataGridView dgBorings;
         private Label lbBoringTable;
         private DataGridViewTextBoxColumn ColNumber;
@@ -313,5 +325,8 @@
         private Label lbLayers;
         private Label lbBoringName;
         private TextBox tbBoringName;
+        private Label label1;
+        private TextBox tbBoringTop;
+        private ToolStripMenuItem loadFileToolStripMenuItem;
     }
 }

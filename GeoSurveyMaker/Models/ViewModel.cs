@@ -6,23 +6,45 @@ using System.Threading.Tasks;
 
 namespace GeoSurveyMaker.Models
 {
-    public static class ViewModel
+    public class ViewModel
     {
-		private static List<Boring> _borings = new List<Boring>();
+		private List<Boring> _borings = new List<Boring>();
 
-		public static List<Boring> Borings
+		public List<Boring> Borings
 		{
 			get { return _borings; }
-			set 
-			{ 
-				_borings = value;
-
-				//이벤트 발생
-                OnBoringsChanged?.Invoke(null, EventArgs.Empty);
-            }
 		}
-		
-		//이벤트 핸들러 정의
-		public static event EventHandler OnBoringsChanged;
-	}
+        //이벤트 핸들러 정의
+        public event EventHandler OnBoringsChanged;
+
+
+        //보링 데이터 CUD
+        //Create
+		public void AddBoring(Boring boring)
+		{
+            _borings.Add(boring);
+            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        //Delete
+        public void RemoveBoring(Boring boring)
+        {
+            _borings.Remove(boring);
+            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        //Update
+        public void UpdateBoring(int index, Boring newBoring)
+        {
+            _borings[index] = newBoring;
+            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        //Reset
+        public void ResetBoring()
+        {
+            _borings.Clear();
+            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 }

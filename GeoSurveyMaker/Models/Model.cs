@@ -32,7 +32,7 @@ namespace GeoSurveyMaker.Models
 
 		private List<GroundLayer> _groundLayers = new List<GroundLayer>();
 
-		//데이터 생성은 메소드를 통해서만 가능하도록 함 
+		//레이어 생성은 메소드를 통해서만 가능하도록 함 
 		public IReadOnlyList<GroundLayer> GroundLayers
 		{
 			get { return _groundLayers.AsReadOnly(); }
@@ -78,12 +78,6 @@ namespace GeoSurveyMaker.Models
                     _groundLayers[i].Top = currentTop;
                 }
             }
-        }
-
-		//객체 생성 초기화 부분
-        public Boring()
-        {
-			
         }
     }
 
