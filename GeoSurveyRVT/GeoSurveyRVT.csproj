@@ -34,15 +34,16 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
-      <HintPath>..\Revit 2024 DLL\RevitAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\02_Templates\01_AECAddin\02_Revit\Revit 2024 DLL\RevitAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\Revit 2024 DLL\RevitAPIUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\02_Templates\01_AECAddin\02_Revit\Revit 2024 DLL\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,11 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Command.cs" />
+    <Compile Include="Commands\OpenXML.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\XMLParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DocablePaneUI\MyDockablePane.xaml.cs">
       <DependentUpon>MyDockablePane.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Status\Container.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RevitAddin.addin" />

@@ -4,6 +4,7 @@ using Autodesk.Revit.DB.Events;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Events;
 using GeoSurveyRVT.TabUI;
+using GeoSurveyRVT.Model;
 using System;
 using System.Reflection;
 
@@ -11,28 +12,29 @@ namespace GeoSurveyRVT
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
+    
     public class App : IExternalApplication
     {
+        public BoringSet boringSet = new BoringSet();
         public Result OnStartup(UIControlledApplication application)
         {
             try
             {
+                
                 // Create a new Ribbon Tab
-                string tabName = "My Add-in";
+                string tabName = "GeoMaker";
                 application.CreateRibbonTab(tabName);
-                // assembly
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                // assembly path
                 string assemblyPath = assembly.Location;
 
                 // Create a new Ribbon Panel
                 RibbonPanel ribbonPanel = application.CreateRibbonPanel(tabName, "My Panel");
 
                 // Create a new Push Button
-                PushButtonData buttonData = new PushButtonData("MyButton", "MyButton", assemblyPath, "GeoSurveyRVT.Command");
+                PushButtonData openXMLBtnData = new PushButtonData("MyButton", "MyButton", assemblyPath, "GeoSurveyRVT.Commands.OpenXML");
 
                 // Add the Push Button to the Ribbon Panel
-                PushButton pushButton = ribbonPanel.AddItem(buttonData) as PushButton;
+                PushButton btnOpenXML = ribbonPanel.AddItem(openXMLBtnData) as PushButton;
 
                 //Create Show Button
                 PushButtonData showButtonData = new PushButtonData("Show Window", "Show", assemblyPath, "GeoSurveyRVT.Show");
