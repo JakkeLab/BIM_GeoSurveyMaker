@@ -3,10 +3,14 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Events;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Events;
-using GeoSurveyRVT.TabUI;
+using GeoSurveyRVT.Commands;
+using GeoSurveyRVT.DockablePaneUI;
 using GeoSurveyRVT.Model;
+using GeoSurveyRVT.Model.XMLParser;
+using GeoSurveyRVT.ViewModel;
 using System;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace GeoSurveyRVT
 {
@@ -15,12 +19,12 @@ namespace GeoSurveyRVT
     
     public class App : IExternalApplication
     {
-        public BoringSet boringSet = new BoringSet();
+        public static UIApplication MainUIApplication;
         public Result OnStartup(UIControlledApplication application)
         {
+            
             try
             {
-                
                 // Create a new Ribbon Tab
                 string tabName = "GeoMaker";
                 application.CreateRibbonTab(tabName);
@@ -31,10 +35,11 @@ namespace GeoSurveyRVT
                 RibbonPanel ribbonPanel = application.CreateRibbonPanel(tabName, "My Panel");
 
                 // Create a new Push Button
-                PushButtonData openXMLBtnData = new PushButtonData("MyButton", "MyButton", assemblyPath, "GeoSurveyRVT.Commands.OpenXML");
+                PushButtonData openXMLBtnData = new PushButtonData("Import XML", "Import\nXML", assemblyPath, "GeoSurveyRVT.Commands.OpenXML");
 
                 // Add the Push Button to the Ribbon Panel
                 PushButton btnOpenXML = ribbonPanel.AddItem(openXMLBtnData) as PushButton;
+           
 
                 //Create Show Button
                 PushButtonData showButtonData = new PushButtonData("Show Window", "Show", assemblyPath, "GeoSurveyRVT.Show");
@@ -42,6 +47,7 @@ namespace GeoSurveyRVT
 
                 //register dockablepane
                 RegisterDockablePane(application);
+
 
                 // return result
                 return Result.Succeeded;
@@ -52,8 +58,6 @@ namespace GeoSurveyRVT
             }
         }
 
-
-
         public Result OnShutdown(UIControlledApplication application)
         {
             return Result.Succeeded;
@@ -62,7 +66,7 @@ namespace GeoSurveyRVT
         public Result RegisterDockablePane(UIControlledApplication application)
         {
             // dockablepaneviewer (customcontrol)
-            MyDockablePane window = new MyDockablePane();
+            ShowBoringTable window = new ShowBoringTable();
 
             // register in application with a new guid
             DockablePaneId dockID = new DockablePaneId(new Guid("{2ab6b447-1be8-4439-bbd1-c3e9d4037d64}"));
@@ -94,6 +98,7 @@ namespace GeoSurveyRVT
             return false;
         }
     }
+
     // external command class
     [Transaction(TransactionMode.Manual)]
     public class Show : IExternalCommand
@@ -102,6 +107,7 @@ namespace GeoSurveyRVT
         {
             try
             {
+
                 // dockable window id
                 DockablePaneId id = new DockablePaneId(new Guid("{2ab6b447-1be8-4439-bbd1-c3e9d4037d64}"));
                 DockablePane dockableWindow = commandData.Application.GetDockablePane(id);

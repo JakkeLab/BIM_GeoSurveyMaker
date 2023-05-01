@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BoringSet>
+  <Boring Index="1">
+    <Name>BH-01</Name>
+    <TopLevel>65.4</TopLevel>
+    <Layers>
+      <Layer1>
+        <LayerType>토사</LayerType>
+        <LayerDepth>10</LayerDepth>
+      </Layer1>
+      <Layer2>
+        <LayerType>풍화암</LayerType>
+        <LayerDepth>8</LayerDepth>
+      </Layer2>
+      <Layer3>
+        <LayerType>기반암</LayerType>
+        <LayerDepth>4</LayerDepth>
+      </Layer3>
+    </Layers>
+  </Boring>
+  <Boring Index="2">
+    <Name>BH-02</Name>
+    <TopLevel>65.4</TopLevel>
+    <Layers>
+      <Layer1>
+        <LayerType>토사</LayerType>
+        <LayerDepth>10</LayerDepth>
+      </Layer1>
+      <Layer2>
+        <LayerType>풍화암</LayerType>
+        <LayerDepth>8</LayerDepth>
+      </Layer2>
+      <Layer3>
+        <LayerType>기반암</LayerType>
+        <LayerDepth>4</LayerDepth>
+      </Layer3>
+      <Layer4>
+        <LayerType>연암</LayerType>
+        <LayerDepth>3</LayerDepth>
+      </Layer4>
+    </Layers>
+  </Boring>
+  <Boring Index="3">
+    <Name>BH-03</Name>
+    <TopLevel>70.5</TopLevel>
+    <Layers>
+      <Layer1>
+        <LayerType>풍화암</LayerType>
+        <LayerDepth>8</LayerDepth>
+      </Layer1>
+      <Layer2>
+        <LayerType>기반암</LayerType>
+        <LayerDepth>4</LayerDepth>
+      </Layer2>
+      <Layer3>
+        <LayerType>연암</LayerType>
+        <LayerDepth>3</LayerDepth>
+      </Layer3>
+    </Layers>
+  </Boring>
+</BoringSet>

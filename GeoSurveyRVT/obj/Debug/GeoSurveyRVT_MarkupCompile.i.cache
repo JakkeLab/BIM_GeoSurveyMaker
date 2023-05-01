@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\
+C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\
 GeoSurveyRVT
 none
 false
 DEBUG;TRACE
 
-11414262617
+272696549
 
-82058362379
-16-1955369204
-DocablePaneUI\MyDockablePane.xaml;
+91665324675
+16-1071386964
+DockablePaneUI\ShowBoringTable.xaml;DockablePaneUI\SingleBoring\SingleBoringDetail.xaml;
 
-False
+True
 

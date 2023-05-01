@@ -56,25 +56,32 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Commands\OpenXML.cs" />
+    <Compile Include="DockablePaneUI\ShowBoringTable.xaml.cs">
+      <DependentUpon>ShowBoringTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DockablePaneUI\SingleBoring\SingleBoringDetail.xaml.cs">
+      <DependentUpon>SingleBoringDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\XMLParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DocablePaneUI\MyDockablePane.xaml.cs">
-      <DependentUpon>MyDockablePane.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Status\Container.cs" />
+    <Compile Include="ViewModel\BoringViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RevitAddin.addin" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DocablePaneUI\MyDockablePane.xaml">
+    <Folder Include="RibbonUI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DockablePaneUI\ShowBoringTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DockablePaneUI\SingleBoring\SingleBoringDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RibbonUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

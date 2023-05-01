@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -10,48 +11,49 @@ namespace GeoSurveyRVT.Model
 	//보링 세트
     public class BoringSet
     {
-        private List<Boring> _borings = new List<Boring>();
+        private ObservableCollection<Boring> _borings = new ObservableCollection<Boring>();
 
-        public List<Boring> Borings
+        public ObservableCollection<Boring> Borings
         {
-            get { return _borings; }
+            get { return _borings;}
         }
-        //이벤트 핸들러 정의
-        public event EventHandler OnBoringsChanged;
-
 
         //보링 데이터 CUD
         //Create
         public void AddBoring(Boring boring)
         {
             _borings.Add(boring);
-            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         //Delete
         public void RemoveBoring(Boring boring)
         {
             _borings.Remove(boring);
-            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         //Update
         public void UpdateBoring(int index, Boring newBoring)
         {
             _borings[index] = newBoring;
-            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         //Reset
         public void ResetBoring()
         {
             _borings.Clear();
-            OnBoringsChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 	//개별 보링
     public class Boring
     {
+		private int _index;
+
+		public int Index
+        {
+			get { return _index; }
+			set { _index = value; }
+		}
+
 		//보링 이름
 		private string _boringName;
 
@@ -68,6 +70,15 @@ namespace GeoSurveyRVT.Model
 		{
 			get { return _topLevel; }
 			set { _topLevel = value; }
+		}
+
+		//보링 위치
+		private BoringLocation boringLocation = new BoringLocation();
+
+		public BoringLocation BoringLocation
+		{
+			get { return boringLocation; }
+			set { boringLocation = value; }
 		}
 
 		//지반층 정의
@@ -168,6 +179,25 @@ namespace GeoSurveyRVT.Model
             _layerName = layerName;
 			_depth = depth;
 			_top= top;
+		}
+	}
+
+	public class BoringLocation
+	{
+		private double _X;
+
+		public double X
+		{
+			get { return _X; }
+			set { _X = value; }
+		}
+
+		private double _Y;
+
+		public double Y
+		{
+			get { return _Y; }
+			set { _Y = value; }
 		}
 	}
 }
