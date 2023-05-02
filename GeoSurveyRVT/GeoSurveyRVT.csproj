@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Commands\CreateBoringFamily.cs" />
     <Compile Include="Commands\OpenXML.cs" />
     <Compile Include="DockablePaneUI\ShowBoringTable.xaml.cs">
       <DependentUpon>ShowBoringTable.xaml</DependentUpon>

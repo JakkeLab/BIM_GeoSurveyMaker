@@ -29,10 +29,12 @@ namespace GeoSurveyRVT.DockablePaneUI
     /// </summary>
     public partial class ShowBoringTable : Page, IDockablePaneProvider
     {
+        private ExternalEvent externalEvent;
         public ShowBoringTable()
         {
             InitializeComponent();
             DataContext = BoringViewModel.Instance;
+            externalEvent = ExternalEvent.Create(new CreateBoringFamily());
         }
 
         // IDockablePaneProvider abstrat method
@@ -209,32 +211,12 @@ namespace GeoSurveyRVT.DockablePaneUI
                 TaskDialog.Show("오류", $"Error \n{ex}");
             }
         }
-
+        
         //시추공 일괄 생성, 요소 생성중 (230502 1057)
         private void btCreateBorings_Click(object sender, RoutedEventArgs e)
         {
-            // 현재 열린 Revit 문서 가져오기
-            Document document = App.MainUIApplication.ActiveUIDocument.Document;
-
-            // Model Text 생성을 위한 필수 매개변수 설정
-            XYZ location = new XYZ(0, 0, 0);
-            string textString = "Hello, World!";
-            TextNoteOptions textOptions = new TextNoteOptions();
-
-            // Model Text 생성
-            Transaction transaction = new Transaction(document, "Create Model Text");
-            transaction.Start();
-            TextNote textNote = TextNote.Create(document, document.ActiveView.Id, location, textString, textOptions);
-            transaction.Commit();
-
-            // XZ 평면으로의 회전 각도 계산
-            double angle = Math.Atan2(document.ActiveView.ViewDirection.Y, document.ActiveView.ViewDirection.X) * 180 / Math.PI;
-
-            // Model Text 위치 및 방향 변경
-            Transaction transaction2 = new Transaction(document, "Rotate Model Text");
-            transaction.Start();
-            ElementTransformUtils.RotateElement(document, textNote.Id, Autodesk.Revit.DB.Line.CreateBound(location, new XYZ(location.X, location.Y, location.Z + 1)), angle);
-            transaction.Commit();
+            CreateBoringFamily.boringData = BoringViewModel.Instance.ImportedBoringSet.Borings[0];
+            externalEvent.Raise();
         }
     }
 

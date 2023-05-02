@@ -16,13 +16,6 @@ namespace GeoSurveyRVT.Model.XMLParser
     {
 
         #region xml 관련 메소드
-
-        //XML 문서서장
-        private void XMLSave(XDocument xDoc, string filePath)
-        {
-            xDoc.Save(filePath);
-        }
-
         //XML 문서 열기
         public List<Boring> XMLRead()
         {
