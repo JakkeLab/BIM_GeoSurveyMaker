@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -47,7 +48,7 @@ namespace GeoSurveyRVT.DockablePaneUI
             };
         }
 
-        //이벤트 처리
+        //클릭할때 바로 행 선택
         private void DataGridCell_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var cell = sender as DataGridCell;
@@ -61,6 +62,9 @@ namespace GeoSurveyRVT.DockablePaneUI
                 }
             }
         }
+
+        //체크박스 처리
+        //헤더에서 체크할경우
         private void HeaderCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             foreach (var item in dgBorings.Items)
@@ -77,6 +81,8 @@ namespace GeoSurveyRVT.DockablePaneUI
                 }
             }
         }
+
+        //헤더에서 체크해제할경우
         private void HeaderCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             foreach (var item in dgBorings.Items)
@@ -94,6 +100,7 @@ namespace GeoSurveyRVT.DockablePaneUI
             }
         }
 
+        //상세보기 버튼
         private void btBoringDetail_Click(object sender, RoutedEventArgs e)
         {
             if (dgBoringDetail.Visibility == System.Windows.Visibility.Visible)
@@ -102,6 +109,7 @@ namespace GeoSurveyRVT.DockablePaneUI
                 dgBoringDetail.Visibility = System.Windows.Visibility.Visible;
         }
 
+        //상세보기 업데이트
         private void dgBorings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(dgBorings.SelectedItem is Boring selectedItem)
@@ -130,6 +138,13 @@ namespace GeoSurveyRVT.DockablePaneUI
             var dataGrid = sender as DataGrid;
             if (dataGrid != null)
             {
+                var columnHeader = UIHelpers.TryFindFromPoint<DataGridColumnHeader>(dataGrid, e.GetPosition(dataGrid));
+                if (columnHeader != null && columnHeader.Column.DisplayIndex == 0)
+                {
+                    // 첫번째 열의 헤더를 클릭한 경우, 이벤트 처리하지 않고 리턴.
+                    return;
+                }
+                //그외 열선택
                 var row = UIHelpers.TryFindFromPoint<DataGridRow>(dataGrid, e.GetPosition(dataGrid));
                 if (row == null)
                 {
@@ -162,7 +177,8 @@ namespace GeoSurveyRVT.DockablePaneUI
                     //rowIndex행, colIndex열의 값 찾기
                     int rowIndex = row.GetIndex();
                     int colIndex = dgBorings.Columns.FirstOrDefault(x => x.Header.ToString() == "이름").DisplayIndex;
-                    
+                    int statusCol = dgBorings.Columns.FirstOrDefault(x => x.Header.ToString() == "Status").DisplayIndex;
+
                     //DataGrid의 ItemSource 가져오기
                     var data = dgBorings.ItemsSource as IList<Boring>;
 
@@ -180,6 +196,10 @@ namespace GeoSurveyRVT.DockablePaneUI
                         var item = BoringViewModel.Instance.ImportedBoringSet.Borings.FirstOrDefault(x => x.BoringName == selectedBoringName);
                         item.BoringLocation.X = pickedPoint.X;
                         item.BoringLocation.Y = pickedPoint.Y;
+
+                        //Status에 표시
+                        data[rowIndex].SetPoint = true;
+                        dgBorings.Items.Refresh();
                     }
                 }
 
@@ -190,9 +210,31 @@ namespace GeoSurveyRVT.DockablePaneUI
             }
         }
 
+        //시추공 일괄 생성, 요소 생성중 (230502 1057)
         private void btCreateBorings_Click(object sender, RoutedEventArgs e)
         {
-            //시추공 일괄 생성
+            // 현재 열린 Revit 문서 가져오기
+            Document document = App.MainUIApplication.ActiveUIDocument.Document;
+
+            // Model Text 생성을 위한 필수 매개변수 설정
+            XYZ location = new XYZ(0, 0, 0);
+            string textString = "Hello, World!";
+            TextNoteOptions textOptions = new TextNoteOptions();
+
+            // Model Text 생성
+            Transaction transaction = new Transaction(document, "Create Model Text");
+            transaction.Start();
+            TextNote textNote = TextNote.Create(document, document.ActiveView.Id, location, textString, textOptions);
+            transaction.Commit();
+
+            // XZ 평면으로의 회전 각도 계산
+            double angle = Math.Atan2(document.ActiveView.ViewDirection.Y, document.ActiveView.ViewDirection.X) * 180 / Math.PI;
+
+            // Model Text 위치 및 방향 변경
+            Transaction transaction2 = new Transaction(document, "Rotate Model Text");
+            transaction.Start();
+            ElementTransformUtils.RotateElement(document, textNote.Id, Autodesk.Revit.DB.Line.CreateBound(location, new XYZ(location.X, location.Y, location.Z + 1)), angle);
+            transaction.Commit();
         }
     }
 

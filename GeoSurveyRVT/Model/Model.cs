@@ -81,6 +81,16 @@ namespace GeoSurveyRVT.Model
 			set { boringLocation = value; }
 		}
 
+		//위치 지정여부
+		private bool _setPoint = false;
+
+		public bool SetPoint
+		{
+			get { return _setPoint; }
+			set { _setPoint = value; }
+		}
+
+
 		//지반층 정의
 		//지반층 리스트
 

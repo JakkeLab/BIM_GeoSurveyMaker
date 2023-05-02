@@ -13,9 +13,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label x:Name ="lbTitle" Content="시추공 세트" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top"/>
-            <DataGrid x:Name="dgBorings" Margin="3,34,3,-117" ItemsSource="{Binding ImportedBoringSet.Borings}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" Height="310" SelectionChanged="dgBorings_SelectionChanged" PreviewKeyDown="dgBorings_PreviewKeyDown" PreviewMouseDown="dgBorings_PreviewMouseDown" SelectionUnit="FullRow">
+            <DataGrid x:Name="dgBorings" Margin="3,34,3,-117" ItemsSource="{Binding ImportedBoringSet.Borings}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" Height="310" SelectionChanged="dgBorings_SelectionChanged" PreviewKeyDown="dgBorings_PreviewKeyDown" SelectionUnit="FullRow" PreviewMouseDown="dgBorings_PreviewMouseDown">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn Header="" CanUserResize="False" Width="30" CanUserReorder="False">
+                    <DataGridCheckBoxColumn Header="" CanUserResize="False" Width="30" CanUserReorder="False" CanUserSort="False">
                         <DataGridCheckBoxColumn.HeaderTemplate>
                             <DataTemplate>
                                 <CheckBox x:Name="cbSelectAll" Checked="HeaderCheckBox_Checked" Unchecked="HeaderCheckBox_Unchecked" />
@@ -37,10 +37,10 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn CanUserResize="False" Header="Status" Width="80" CanUserReorder="False" IsReadOnly="True"/>
+                    <DataGridTextColumn CanUserResize="False" Header="Status" Width="80" CanUserReorder="False" Binding="{Binding SetPoint}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btBoringDetail" Content="상세보기" HorizontalAlignment="Left" Margin="3,350,293,-142" Click="btnSetPosition_Click"/>
+            <Button x:Name="btBoringDetail" Content="상세보기" HorizontalAlignment="Left" Margin="3,350,293,-142" Click="btBoringDetail_Click"/>
             <SingleBoring:SingleBoringDetail x:Name="dgBoringDetail" Margin="3,375,3,-327" HorizontalAlignment="Stretch"/>
             <Button x:Name="btCreateBorings" Content="시추공 생성" Margin="271,350,3,-142" Click="btCreateBorings_Click"/>
         </Grid>
