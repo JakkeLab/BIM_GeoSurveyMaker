@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Commands\BoringSetting.cs" />
     <Compile Include="Commands\CreateBoringFamily.cs" />
     <Compile Include="Commands\OpenXML.cs" />
     <Compile Include="DockablePaneUI\ShowBoringTable.xaml.cs">
@@ -66,20 +68,26 @@
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\XMLParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RibbonUIForm\BoringSetting\BoringSettingUI.xaml.cs">
+      <DependentUpon>BoringSettingUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIViewModel\BoringSettingViewModel.cs" />
     <Compile Include="ViewModel\BoringViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RevitAddin.addin" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RibbonUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="DockablePaneUI\ShowBoringTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DockablePaneUI\SingleBoring\SingleBoringDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RibbonUIForm\BoringSetting\BoringSettingUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

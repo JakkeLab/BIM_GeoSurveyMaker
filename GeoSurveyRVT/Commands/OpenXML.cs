@@ -66,6 +66,7 @@ namespace GeoSurveyRVT.Commands
                     }
                 }
             }
+            BoringViewModel.Instance.LoadBoringNames();
         }
     }
 }

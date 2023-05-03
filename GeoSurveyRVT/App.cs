@@ -20,34 +20,35 @@ namespace GeoSurveyRVT
     public class App : IExternalApplication
     {
         public static UIApplication MainUIApplication;
+        
         public Result OnStartup(UIControlledApplication application)
         {
             
             try
             {
-                // Create a new Ribbon Tab
+                //리본 탭
                 string tabName = "GeoMaker";
                 application.CreateRibbonTab(tabName);
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 string assemblyPath = assembly.Location;
 
-                // Create a new Ribbon Panel
+                //리본 패널
                 RibbonPanel ribbonPanel = application.CreateRibbonPanel(tabName, "My Panel");
 
-                // Create a new Push Button
-                PushButtonData openXMLBtnData = new PushButtonData("Import XML", "Import\nXML", assemblyPath, "GeoSurveyRVT.Commands.OpenXML");
+                //XML열기 버튼
+                PushButtonData openXMLButtonData = new PushButtonData("Import XML", "Import\nXML", assemblyPath, "GeoSurveyRVT.Commands.OpenXML");
+                PushButton openXMLButton = ribbonPanel.AddItem(openXMLButtonData) as PushButton;
 
-                // Add the Push Button to the Ribbon Panel
-                PushButton btnOpenXML = ribbonPanel.AddItem(openXMLBtnData) as PushButton;
-           
-
-                //Create Show Button
+                //대화상자 열기 버튼
                 PushButtonData showButtonData = new PushButtonData("Show Window", "Show", assemblyPath, "GeoSurveyRVT.Show");
                 PushButton showButton = ribbonPanel.AddItem(showButtonData) as PushButton;
 
+                //설정창 버튼
+                PushButtonData settingButtonData = new PushButtonData("Boring Setting", "Setting", assemblyPath, "GeoSurveyRVT.Commands.BoringSetting");
+                PushButton settingButton = ribbonPanel.AddItem(settingButtonData) as PushButton;
+
                 //register dockablepane
                 RegisterDockablePane(application);
-
 
                 // return result
                 return Result.Succeeded;

@@ -26,3 +26,5 @@ C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03
 C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\DockablePaneUI\SingleBoring\SingleBoringDetail.g.cs
 C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\DockablePaneUI\SingleBoring\SingleBoringDetail.baml
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.g.cs
+C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.baml

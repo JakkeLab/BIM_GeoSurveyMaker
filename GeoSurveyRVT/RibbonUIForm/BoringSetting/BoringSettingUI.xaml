@@ -1,0 +1,25 @@
+﻿<Window x:Name="wdBoringSetting" x:Class="GeoSurveyRVT.RibbonUIForm.BoringSetting.BoringSettingUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             Title="보링 설정" SizeToContent="WidthAndHeight" Width="250" Height="350" ResizeMode="NoResize" Closing="IsClosing">
+    <Grid x:Name="gdSetting" Height="300" VerticalAlignment="Top">
+        <Label x:Name="lbTitle" Content="보링 설정" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgBoringSettings" Height="210" Width="200" Margin="5,36,5,54" ItemsSource="{Binding LayerNames}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="레이어 이름" Width="80" Binding="{Binding}" CanUserResize="False" CanUserReorder="False" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="색상" Width="80" CanUserResize="False" CanUserReorder="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnSetColor" Content="" Click="btnSetColor_Click" Margin="1,1,1,1" Foreground="White" Background="{Binding Color}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btCancel" Content="취소" Width="50" HorizontalAlignment="Left" Margin="62,257,0,0" VerticalAlignment="Top" Click="btCancel_Click"/>
+        <Button x:Name="btOk" Content="확인" Width="50" HorizontalAlignment="Left" Margin="7,257,0,0" VerticalAlignment="Top" Click="btOk_Click"/>
+    </Grid>
+</Window>
