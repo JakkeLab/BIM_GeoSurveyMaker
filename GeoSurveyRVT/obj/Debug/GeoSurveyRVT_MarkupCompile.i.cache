@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\
+C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\
 GeoSurveyRVT
 none
 false
@@ -13,8 +13,8 @@ DEBUG;TRACE
 394197765
 
 131168986512
-17-1706608080
+17-822625840
 DockablePaneUI\ShowBoringTable.xaml;DockablePaneUI\SingleBoring\SingleBoringDetail.xaml;RibbonUIForm\BoringSetting\BoringSettingUI.xaml;
 
-False
+True
 

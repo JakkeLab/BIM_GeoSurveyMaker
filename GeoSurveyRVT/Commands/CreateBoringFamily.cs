@@ -27,7 +27,7 @@ namespace GeoSurveyRVT.Commands
 
             try
             {
-                string familyTemplatePath = $@"C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\_FamilyTemplate\BoringTemplate.rft";
+                string familyTemplatePath = $@"C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\_FamilyTemplate\BoringTemplate.rft";
                 Document familyDoc = app.NewFamilyDocument(familyTemplatePath);
 
                 using (var tr = new Transaction(familyDoc, "Create Solid Family"))
