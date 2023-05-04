@@ -12,6 +12,7 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB.Structure;
 using GeoSurveyRVT.Model;
 using FamilyFac = Autodesk.Revit.Creation;
+using GeoSurveyRVT.UIViewModel;
 
 namespace GeoSurveyRVT.Commands
 {
@@ -27,7 +28,7 @@ namespace GeoSurveyRVT.Commands
 
             try
             {
-                string familyTemplatePath = $@"C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\_FamilyTemplate\BoringTemplate.rft";
+                string familyTemplatePath = $@"C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\_FamilyTemplate\BoringTemplate.rft";
                 Document familyDoc = app.NewFamilyDocument(familyTemplatePath);
 
                 using (var tr = new Transaction(familyDoc, "Create Solid Family"))
@@ -137,7 +138,8 @@ namespace GeoSurveyRVT.Commands
             
             //재질 생성 및 색상 지정
             var materialId = Material.Create(doc, $"보링_{layerName}");
-            Color color = new Color(255, 0, 0);
+            var layerColor = BoringSettingViewModel.Instance.LayerInfos.Single(x => x.LayerName == layerName).LayerColor;
+            Color color = new Color (layerColor.R, layerColor.G, layerColor.B);
             Material material = doc.GetElement(materialId) as Material;
             material.Color = color;
 

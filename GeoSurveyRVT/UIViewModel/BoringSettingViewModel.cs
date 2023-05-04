@@ -1,4 +1,5 @@
-﻿using GeoSurveyRVT.RibbonUIForm.BoringSetting;
+﻿using GeoSurveyRVT.Model;
+using GeoSurveyRVT.RibbonUIForm.BoringSetting;
 using GeoSurveyRVT.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -20,31 +21,23 @@ namespace GeoSurveyRVT.UIViewModel
             get { return _instance.Value; }
         }
 
-        private static ObservableCollection<string> _layerNames = new ObservableCollection<string>();
 
-		public ObservableCollection<string> LayerNames
-		{
-			get { return _layerNames; }
-		}
+        private ObservableCollection<LayerInfo> _layerInfos = new ObservableCollection<LayerInfo>();
 
-		public void SaveLayerNames(ObservableCollection<string> LayerNames)
-		{
-			_layerNames.Clear();
-            _layerNames = LayerNames;
+        public ObservableCollection<LayerInfo> LayerInfos
+        {
+            get { return _layerInfos; }
         }
 
-		private ObservableCollection<Color> _layerColors = new ObservableCollection<Color>();
 
-        public ObservableCollection<Color> LayerColors
+		public void SaveLayerInfo(ObservableCollection<LayerInfo> layerInfos)
 		{
-			get { return _layerColors; }
-		}
-
-		public void SaveLayerColors(ObservableCollection<Color> LayerColors)
-		{
-			_layerColors.Clear();
-			_layerColors = LayerColors;
-		}
+            _layerInfos.Clear();
+            foreach (var layerInfo in layerInfos)
+            {
+                _layerInfos.Add(layerInfo);
+            }
+        }
 
 		//세팅값 저장소 초기화
 		public BoringSettingViewModel()

@@ -65,6 +65,7 @@
     <Compile Include="DockablePaneUI\SingleBoring\SingleBoringDetail.xaml.cs">
       <DependentUpon>SingleBoringDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\LayerInfo.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\XMLParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +73,7 @@
       <DependentUpon>BoringSettingUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="UIViewModel\BoringSettingViewModel.cs" />
+    <Compile Include="UIViewModel\ColorToBrushConverter.cs" />
     <Compile Include="ViewModel\BoringViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
