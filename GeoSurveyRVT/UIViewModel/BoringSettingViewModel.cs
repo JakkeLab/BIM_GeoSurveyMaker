@@ -39,8 +39,17 @@ namespace GeoSurveyRVT.UIViewModel
             }
         }
 
-		//세팅값 저장소 초기화
-		public BoringSettingViewModel()
+        private string _templatePath;
+
+        public string TemplatePath
+        {
+            get { return _templatePath; }
+            set { _templatePath = value; }
+        }
+
+
+        //세팅값 저장소 초기화
+        public BoringSettingViewModel()
 		{
 
 		}

@@ -212,10 +212,10 @@ namespace GeoSurveyRVT.DockablePaneUI
             }
         }
         
-        //시추공 일괄 생성, 요소 생성중 (230502 1057)
+        //시추공 일괄 생성
         private void btCreateBorings_Click(object sender, RoutedEventArgs e)
         {
-            CreateBoringFamily.boringData = BoringViewModel.Instance.ImportedBoringSet.Borings[0];
+            CreateBoringFamily.boringSet = BoringViewModel.Instance.ImportedBoringSet.Borings.ToList();
             externalEvent.Raise();
         }
     }

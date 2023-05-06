@@ -10,6 +10,9 @@ using GeoSurveyRVT.UIViewModel;
 using System.Collections.ObjectModel;
 using System.Windows.Controls.Primitives;
 using GeoSurveyRVT.Model;
+using Winform = System.Windows.Forms;
+using System.IO;
+using Autodesk.Revit.UI;
 
 namespace GeoSurveyRVT.RibbonUIForm.BoringSetting
 {
@@ -148,6 +151,33 @@ namespace GeoSurveyRVT.RibbonUIForm.BoringSetting
                 }
             }
             return child;
+        }
+
+        private void btLoadTemplate_Click(object sender, RoutedEventArgs e)
+        {
+            var fileDig = OpenTemplate();
+            if(fileDig.ShowDialog() == WinForm.DialogResult.OK)
+            {
+                BoringSettingViewModel.Instance.TemplatePath = fileDig.FileName;
+            }
+        }
+
+        //파일열기 대화상자
+        private Winform.OpenFileDialog OpenTemplate()
+        {
+            var openFileDialog = new Winform.OpenFileDialog();
+            openFileDialog.CheckFileExists = true;
+            openFileDialog.Multiselect = false;
+            openFileDialog.ValidateNames = true;
+
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string filepath = Path.GetDirectoryName(path);
+
+            openFileDialog.InitialDirectory = filepath;
+            openFileDialog.DefaultExt = ".rft";
+            openFileDialog.Filter = "RFT (*.rft) | *.rft";
+
+            return openFileDialog;
         }
     }
 }

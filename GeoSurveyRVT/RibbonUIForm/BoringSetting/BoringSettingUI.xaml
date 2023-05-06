@@ -25,5 +25,7 @@
         </DataGrid>
         <Button x:Name="btCancel" Content="취소" Width="50" HorizontalAlignment="Left" Margin="62,257,0,0" VerticalAlignment="Top" Click="btCancel_Click"/>
         <Button x:Name="btOk" Content="확인" Width="50" HorizontalAlignment="Left" Margin="7,257,0,0" VerticalAlignment="Top" Click="btOk_Click"/>
+        <Button x:Name="btLoadTemplate" Content="템플릿" HorizontalAlignment="Left" Width="50" Margin="190,257,0,0" VerticalAlignment="Top" Click="btLoadTemplate_Click"/>
     </Grid>
+    
 </Window>
