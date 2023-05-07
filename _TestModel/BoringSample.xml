@@ -58,4 +58,22 @@
       </Layer3>
     </Layers>
   </Boring>
+  <Boring Index="4">
+    <Name>BH-04</Name>
+    <TopLevel>70.3</TopLevel>
+    <Layers>
+      <Layer1>
+        <LayerType>풍화암</LayerType>
+        <LayerDepth>8</LayerDepth>
+      </Layer1>
+      <Layer2>
+        <LayerType>기반암</LayerType>
+        <LayerDepth>4</LayerDepth>
+      </Layer2>
+      <Layer3>
+        <LayerType>연암</LayerType>
+        <LayerDepth>3</LayerDepth>
+      </Layer3>
+    </Layers>
+  </Boring>
 </BoringSet>

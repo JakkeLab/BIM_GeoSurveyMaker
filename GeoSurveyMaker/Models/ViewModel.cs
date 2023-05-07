@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace GeoSurveyMaker.Models
 {
     public class ViewModel
     {
+
 		private List<Boring> _borings = new List<Boring>();
 
 		public List<Boring> Borings
@@ -20,7 +22,7 @@ namespace GeoSurveyMaker.Models
 
         //보링 데이터 CUD
         //Create
-		public void AddBoring(Boring boring)
+        public void AddBoring(Boring boring)
 		{
             _borings.Add(boring);
             OnBoringsChanged?.Invoke(this, EventArgs.Empty);

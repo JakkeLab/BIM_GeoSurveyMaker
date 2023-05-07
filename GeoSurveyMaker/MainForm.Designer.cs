@@ -51,6 +51,7 @@
             this.tbBoringName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbBoringTop = new System.Windows.Forms.TextBox();
+            this.다른이름으로저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBorings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgLayers)).BeginInit();
@@ -73,6 +74,7 @@
             this.newFileToolStripMenuItem,
             this.loadFileToolStripMenuItem,
             this.exportFileToolStripMenuItem,
+            this.다른이름으로저장ToolStripMenuItem,
             this.CloseAppToolStripMenuItem});
             this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
             this.파일ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
@@ -81,28 +83,31 @@
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.newFileToolStripMenuItem.Text = "새 파일";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.loadFileToolStripMenuItem.Text = "불러오기";
             this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
             // exportFileToolStripMenuItem
             // 
             this.exportFileToolStripMenuItem.Name = "exportFileToolStripMenuItem";
-            this.exportFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportFileToolStripMenuItem.Text = "내보내기";
+            this.exportFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.exportFileToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.exportFileToolStripMenuItem.Text = "저장";
             this.exportFileToolStripMenuItem.Click += new System.EventHandler(this.exportFileToolStripMenuItem_Click);
             // 
             // CloseAppToolStripMenuItem
             // 
             this.CloseAppToolStripMenuItem.Name = "CloseAppToolStripMenuItem";
-            this.CloseAppToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CloseAppToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.CloseAppToolStripMenuItem.Text = "닫기";
             this.CloseAppToolStripMenuItem.Click += new System.EventHandler(this.CloseAppToolStripMenuItem_Click);
             // 
@@ -270,6 +275,14 @@
             this.tbBoringTop.TabIndex = 14;
             this.tbBoringTop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputOnlyDouble_KeyPress);
             // 
+            // 다른이름으로저장ToolStripMenuItem
+            // 
+            this.다른이름으로저장ToolStripMenuItem.Name = "다른이름으로저장ToolStripMenuItem";
+            this.다른이름으로저장ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.다른이름으로저장ToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.다른이름으로저장ToolStripMenuItem.Text = "다른이름으로 저장";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -328,5 +341,6 @@
         private Label label1;
         private TextBox tbBoringTop;
         private ToolStripMenuItem loadFileToolStripMenuItem;
+        private ToolStripMenuItem 다른이름으로저장ToolStripMenuItem;
     }
 }

@@ -10,19 +10,21 @@ namespace GeoSurveyMaker
     {
         //저장소 생성
         ViewModel viewModel = new ViewModel();
-
-
-
+        FileModel fileModel;
         public MainForm()
         {
             InitializeComponent();
             viewModel.OnBoringsChanged += ViewModel_OnBoringsChanged;
+            fileModel = new FileModel();
+            this.Text = $"새 보링 데이터 - SurveyMaker";
         }
 
-        //이벤트 구독
+        //이벤트 작업
         private void ViewModel_OnBoringsChanged(object sender, EventArgs e)
         {
             RefreshBoringView();
+            fileModel.IsContentChanged = true;
+            this.Text = $"*{this.Text}";
         }
 
         private void btnAddBoring_Click(object sender, EventArgs e)
@@ -310,32 +312,80 @@ namespace GeoSurveyMaker
             }
         }
 
+        //
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("기존 보링 삭제 후 새로 만드시겠습니까?", "새 파일 작성", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (fileModel.IsContentChanged)
+            {
+                if (MessageBox.Show("기존 보링 삭제 후 새로 만드시겠습니까?", "새 파일 작성", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ClearAllBorings();
+                    RefreshBoringView();
+                    fileModel = new FileModel();
+                    this.Text = "새 보링 데이터 - SurveyMaker";
+                }
+            }
+            else
             {
                 ClearAllBorings();
                 RefreshBoringView();
+                fileModel = new FileModel();
+                this.Text = "새 보링 데이터 - SurveyMaker";
             }
         }
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<Boring> loadedBorings = XMLRead();
-            viewModel.ResetBoring();
-            foreach(var loadedBoring in loadedBorings)
+            if(fileModel.IsContentChanged == true)
             {
-                viewModel.AddBoring(loadedBoring);
+                if (MessageBox.Show("기존 파일이 저장되지 않았습니다.\n불러오시겠습니까?", "파일 불러오기", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    object[] xmlData = XMLRead();
+                    List<Boring> loadedBorings = xmlData[1] as List<Boring>;
+                    viewModel.ResetBoring();
+                    foreach (var loadedBoring in loadedBorings)
+                    {
+                        viewModel.AddBoring(loadedBoring);
+                    }
+                    fileModel.FileName = xmlData[0] as string;
+                    fileModel.IsNewFile = false;
+                    fileModel.IsContentChanged = false;
+                    this.Text = $"{Path.GetFileName(fileModel.FileName)} - SurveyMaker";
+                }
+            }
+            else
+            {
+                object[] xmlData = XMLRead();
+                if (xmlData[0] != string.Empty)
+                {
+                    List<Boring> loadedBorings = xmlData[1] as List<Boring>;
+                    viewModel.ResetBoring();
+                    foreach (var loadedBoring in loadedBorings)
+                    {
+                        viewModel.AddBoring(loadedBoring);
+                    }
+                    fileModel.FileName = xmlData[0] as string;
+                    fileModel.IsNewFile = false;
+                    fileModel.IsContentChanged = false;
+                    this.Text = $"{Path.GetFileName(fileModel.FileName)} - SurveyMaker";
+                }
             }
         }
 
         private void exportFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            if (viewModel.Borings.Count != 0 && viewModel.Borings != null)
+            var xmlDoc = XMLCreate();
+            if(xmlDoc == null)
             {
-                var xmlDoc = XMLCreate();
-                ExportXML(xmlDoc);
+                return;
+            }
+            string fileName = SaveXML(xmlDoc);
+            if (fileName != null)
+            {
+                fileModel.FileName = fileName;
+                fileModel.IsContentChanged = false;
+                fileModel.IsNewFile = false;
+                this.Text = $"{Path.GetFileName(fileName)} - SurveyMaker";
             }
         }
 
@@ -351,16 +401,33 @@ namespace GeoSurveyMaker
         }
 
         #region xml 관련 메소드
-        //XML 내보내기
-        private void ExportXML(XDocument xDoc)
+        //XML 저장하기
+        private string SaveXML(XDocument xDoc)
         {
             if(XMLCreate() != null)
             {
-                SaveFileDialog saveFileDialog = SaveFile();
-                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                if (fileModel.IsNewFile)
                 {
-                    XMLSave(xDoc, saveFileDialog.FileName);
+                    SaveFileDialog saveFileDialog = SaveFile();
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        XMLSave(xDoc, saveFileDialog.FileName);
+                        return saveFileDialog.FileName;
+                    }
+                    else
+                    {
+                        return fileModel.FileName;
+                    }
                 }
+                else
+                {
+                    XMLSave(xDoc, fileModel.FileName);
+                    return fileModel.FileName;
+                }
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -417,7 +484,7 @@ namespace GeoSurveyMaker
         }
 
         //XML 문서 열기
-        private List<Boring> XMLRead()
+        private object[] XMLRead()
         {
             OpenFileDialog openFileDialog = OpenFile();
             List<Boring> boringsResult = new List<Boring>();
@@ -454,7 +521,10 @@ namespace GeoSurveyMaker
                     boringsResult.Add(boring.BoringObject);
                 }
             }
-            return boringsResult;
+            
+;           object[] result = new object[] { (string)openFileDialog.FileName, (List<Boring>)boringsResult};
+
+            return result;
         }
 
         //파일저장 기능

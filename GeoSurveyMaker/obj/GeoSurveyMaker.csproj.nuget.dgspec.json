@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jake\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj": {}
+    "C:\\Users\\sjak3\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jake\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj": {
+    "C:\\Users\\sjak3\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jake\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj",
+        "projectUniqueName": "C:\\Users\\sjak3\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj",
         "projectName": "GeoSurveyMaker",
-        "projectPath": "C:\\Users\\Jake\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj",
-        "packagesPath": "C:\\Users\\Jake\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jake\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\obj\\",
+        "projectPath": "C:\\Users\\sjak3\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\GeoSurveyMaker.csproj",
+        "packagesPath": "C:\\Users\\sjak3\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sjak3\\OneDrive\\JAKK3 Lab\\03_DEV\\01_Project\\05_BIM Addin\\01_토목BIM\\03_디지털 주상도 제작\\Repo\\GeoSurveyMaker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jake\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sjak3\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
