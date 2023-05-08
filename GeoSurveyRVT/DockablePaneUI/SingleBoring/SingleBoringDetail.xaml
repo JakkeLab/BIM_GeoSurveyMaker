@@ -8,7 +8,7 @@
              Width="342" Height="180">
     <Grid Background="White">
         <Label x:Name="lbBoring" Content="보링 상세정보" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgLayers" Width="342" Height="150" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,30,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+        <DataGrid x:Name="dgLayers" Width="342" Height="150" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,30,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="No" Binding="{Binding LayerIndex}" IsReadOnly="True"/>
                 <DataGridTextColumn CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="레이어 이름" Width="80" Binding="{Binding LayerName}" IsReadOnly="True"/>

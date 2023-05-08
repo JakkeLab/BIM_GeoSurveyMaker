@@ -9,9 +9,10 @@ namespace GeoSurveyMaker.Models
 {
     public class FileModel
     {
-		private string _fileName;
+		private string _fileName = "새 보링 데이터";
 
-		public string FileName
+        public event EventHandler ContentChanged;
+        public string FileName
 		{
 			get { return _fileName; }
 			set { _fileName = value; }
@@ -22,8 +23,12 @@ namespace GeoSurveyMaker.Models
 		public bool IsContentChanged
 		{
 			get { return _isContentChanged; }
-			set { _isContentChanged = value; }
-		}
+			set
+			{
+				_isContentChanged = value;
+			}
+        }
+		//이벤트 핸들러 정의
 
 		private bool _isNewFile = true;
 

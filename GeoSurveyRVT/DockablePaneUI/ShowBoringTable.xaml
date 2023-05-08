@@ -13,7 +13,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label x:Name ="lbTitle" Content="시추공 세트" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top"/>
-            <DataGrid x:Name="dgBorings" Margin="3,34,3,-117" ItemsSource="{Binding ImportedBoringSet.Borings}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" Height="310" SelectionChanged="dgBorings_SelectionChanged" PreviewKeyDown="dgBorings_PreviewKeyDown" SelectionUnit="FullRow" PreviewMouseDown="dgBorings_PreviewMouseDown">
+            <DataGrid x:Name="dgBorings" Margin="3,34,3,-117" ItemsSource="{Binding ImportedBoringSet.Borings}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" Height="310" SelectionChanged="dgBorings_SelectionChanged" PreviewKeyDown="dgBorings_PreviewKeyDown" SelectionUnit="FullRow" PreviewMouseDown="dgBorings_PreviewMouseDown">
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="" CanUserResize="False" Width="30" CanUserReorder="False" CanUserSort="False">
                         <DataGridCheckBoxColumn.HeaderTemplate>

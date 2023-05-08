@@ -91,7 +91,7 @@ namespace GeoSurveyRVT.Commands
 
                                 XYZ origin = new XYZ(boring.BoringLocation.X,
                                                      boring.BoringLocation.Y,
-                                                     boring.TopLevel);
+                                                     UnitUtils.Convert(boring.TopLevel, UnitTypeId.Meters, UnitTypeId.Feet));
                                 FamilyInstance instance = doc.Create.NewFamilyInstance(origin, symbol, level, StructuralType.NonStructural);
                             }
                         }
@@ -126,13 +126,24 @@ namespace GeoSurveyRVT.Commands
                 start -= UnitUtils.Convert(layer.Depth, UnitTypeId.Meters, UnitTypeId.Feet);
                 posts.Add(createdForm);
             }
+
+            //보링 이름 생성
             PlaceModelText(doc, 
                     $"보링이름_{boring.BoringName}", 
                     new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0,
                                                    UnitUtils.Convert(150, UnitTypeId.Millimeters, UnitTypeId.Feet)), 
-                    boring.BoringName,
+                    $"{boring.BoringName}",
                     UnitUtils.Convert(600, UnitTypeId.Millimeters, UnitTypeId.Feet));
 
+            //지반 표고 생성
+            PlaceModelText(doc,
+                    $"지반표고 표시",
+                    new XYZ(UnitUtils.Convert(3250, UnitTypeId.Millimeters, UnitTypeId.Feet), 0,
+                                                   UnitUtils.Convert(150, UnitTypeId.Millimeters, UnitTypeId.Feet)),
+                    $"표고 : {boring.TopLevel.ToString("F2")}",
+                    UnitUtils.Convert(300, UnitTypeId.Millimeters, UnitTypeId.Feet));
+
+            //시추 종료점 생성
             PlaceModelText(doc, 
                     $"시추종료점 표시", 
                     new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0,
@@ -173,7 +184,7 @@ namespace GeoSurveyRVT.Commands
                             //10의 배수는 아니면
                             CreateModelCurveXAxis(doc, zCoord, -1000, -500);
                         }
-                        PlaceModelText(doc, $"레벨표시_{i*0.25}", new XYZ(rulerXCoord, 0, zCoordText), (i*0.25).ToString(), UnitUtils.Convert(300, UnitTypeId.Millimeters, UnitTypeId.Feet));
+                        PlaceModelText(doc, $"레벨표시_{i*0.25}", new XYZ(rulerXCoord, 0, zCoordText), (i*0.25).ToString(), UnitUtils.Convert(250, UnitTypeId.Millimeters, UnitTypeId.Feet));
                     }
                 }
                 else
@@ -244,19 +255,12 @@ namespace GeoSurveyRVT.Commands
             double layerStart = UnitUtils.Convert(start, UnitTypeId.Feet, UnitTypeId.Millimeters);
 
             //레이어명 배치하기
-            double zValueLayer = UnitUtils.Convert((layerStart - 750), UnitTypeId.Millimeters, UnitTypeId.Feet);
+            double zValueLayer = UnitUtils.Convert((layerStart - 400), UnitTypeId.Millimeters, UnitTypeId.Feet);
             PlaceModelText(doc, 
                     $"레이어명_{layerName}", 
                     new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0, zValueLayer),
-                    layerName,
-                    UnitUtils.Convert(600, UnitTypeId.Millimeters, UnitTypeId.Feet));
-            
-            //깊이 배치하기
-            double zValueDepth = UnitUtils.Convert((layerStart - 1500), UnitTypeId.Millimeters, UnitTypeId.Feet);
-            PlaceModelText(doc, 
-                    $"심도_{layerName}", new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0, zValueDepth), 
-                    $"심도 : {layerDepth.ToString("F2")}",
-                    UnitUtils.Convert(400, UnitTypeId.Millimeters, UnitTypeId.Feet));
+                    $"{layerName} | 심도 : {layerDepth.ToString("F2")}",
+                    UnitUtils.Convert(300, UnitTypeId.Millimeters, UnitTypeId.Feet));
 
             //구분선 배치하기
             CreateModelCurveXAxis(doc, skplane.GetPlane().Origin.Z, 5000, 500);

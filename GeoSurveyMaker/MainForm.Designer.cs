@@ -33,6 +33,7 @@
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.다른이름으로저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgBorings = new System.Windows.Forms.DataGridView();
             this.ColNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             this.tbBoringName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbBoringTop = new System.Windows.Forms.TextBox();
-            this.다른이름으로저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBorings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgLayers)).BeginInit();
@@ -103,6 +103,14 @@
             this.exportFileToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.exportFileToolStripMenuItem.Text = "저장";
             this.exportFileToolStripMenuItem.Click += new System.EventHandler(this.exportFileToolStripMenuItem_Click);
+            // 
+            // 다른이름으로저장ToolStripMenuItem
+            // 
+            this.다른이름으로저장ToolStripMenuItem.Name = "다른이름으로저장ToolStripMenuItem";
+            this.다른이름으로저장ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.다른이름으로저장ToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.다른이름으로저장ToolStripMenuItem.Text = "다른이름으로 저장";
             // 
             // CloseAppToolStripMenuItem
             // 
@@ -213,20 +221,20 @@
             // 
             // btnAddBoring
             // 
-            this.btnAddBoring.Location = new System.Drawing.Point(984, 420);
+            this.btnAddBoring.Location = new System.Drawing.Point(860, 419);
             this.btnAddBoring.Name = "btnAddBoring";
-            this.btnAddBoring.Size = new System.Drawing.Size(55, 23);
+            this.btnAddBoring.Size = new System.Drawing.Size(106, 23);
             this.btnAddBoring.TabIndex = 7;
-            this.btnAddBoring.Text = "추가";
+            this.btnAddBoring.Text = "추가(덮어쓰기)";
             this.btnAddBoring.UseVisualStyleBackColor = true;
             this.btnAddBoring.Click += new System.EventHandler(this.btnAddBoring_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(1049, 419);
+            this.btnRemove.Location = new System.Drawing.Point(998, 419);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(55, 23);
+            this.btnRemove.Size = new System.Drawing.Size(106, 23);
             this.btnRemove.TabIndex = 8;
             this.btnRemove.Text = "삭제";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -274,14 +282,6 @@
             this.tbBoringTop.Size = new System.Drawing.Size(179, 23);
             this.tbBoringTop.TabIndex = 14;
             this.tbBoringTop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputOnlyDouble_KeyPress);
-            // 
-            // 다른이름으로저장ToolStripMenuItem
-            // 
-            this.다른이름으로저장ToolStripMenuItem.Name = "다른이름으로저장ToolStripMenuItem";
-            this.다른이름으로저장ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.다른이름으로저장ToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
-            this.다른이름으로저장ToolStripMenuItem.Text = "다른이름으로 저장";
             // 
             // MainForm
             // 

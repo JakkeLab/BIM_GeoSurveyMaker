@@ -10,13 +10,14 @@ namespace GeoSurveyMaker
     {
         //저장소 생성
         ViewModel viewModel = new ViewModel();
-        FileModel fileModel;
+        FileModel fileModel = new FileModel();
         public MainForm()
         {
             InitializeComponent();
             viewModel.OnBoringsChanged += ViewModel_OnBoringsChanged;
+            fileModel.ContentChanged += FileStatus_ContentChanged;
             fileModel = new FileModel();
-            this.Text = $"새 보링 데이터 - SurveyMaker";
+            this.Text = $"{fileModel.FileName} - SurveyMaker";
         }
 
         //이벤트 작업
@@ -24,7 +25,11 @@ namespace GeoSurveyMaker
         {
             RefreshBoringView();
             fileModel.IsContentChanged = true;
-            this.Text = $"*{this.Text}";
+        }
+
+        private void FileStatus_ContentChanged(object sender, EventArgs e)
+        {
+            this.Text = $"*{fileModel.FileName} - SurveyMaker";
         }
 
         private void btnAddBoring_Click(object sender, EventArgs e)
@@ -193,7 +198,6 @@ namespace GeoSurveyMaker
         //보링 리스트 변화 있을 시 보링 전체 그리드, 보링 리스트 새로고침
         public void RefreshBoringView()
         {
-
             if(viewModel.Borings.Count != 0)
             {
                 //가장 레이어가 많은 보링의 레이어수 선택
