@@ -122,8 +122,24 @@ namespace GeoSurveyRVT.Commands
             double start = 0;
             foreach (var layer in boring.GroundLayers)
             {
+                //레이어 포스트 생성
                 var createdForm = CreateLayerPost(doc, start, layer.Depth, layer.LayerName, layer.Depth);
+
+                //레이어명 배치하기
+                double layerStart = UnitUtils.Convert(start, UnitTypeId.Feet, UnitTypeId.Millimeters);
+                double zValueLayer = UnitUtils.Convert((layerStart - 400), UnitTypeId.Millimeters, UnitTypeId.Feet);
+
+                //패밀리 템플릿 내에서 패밀리 이름이 TextOnXZ 인 패밀리 찾기
+                PlaceModelText(doc,
+                        $"레이어번호_{layer.LayerIndex}_{layer.LayerName}",
+                        new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0, zValueLayer),
+                        $"{layer.LayerName} | 심도 : {layer.Depth.ToString("F2")}",
+                        UnitUtils.Convert(300, UnitTypeId.Millimeters, UnitTypeId.Feet));
+
+                //시작점 변경
                 start -= UnitUtils.Convert(layer.Depth, UnitTypeId.Meters, UnitTypeId.Feet);
+
+                //폼 추가
                 posts.Add(createdForm);
             }
 
@@ -254,13 +270,13 @@ namespace GeoSurveyRVT.Commands
             //주석 기준점
             double layerStart = UnitUtils.Convert(start, UnitTypeId.Feet, UnitTypeId.Millimeters);
 
-            //레이어명 배치하기
-            double zValueLayer = UnitUtils.Convert((layerStart - 400), UnitTypeId.Millimeters, UnitTypeId.Feet);
-            PlaceModelText(doc, 
-                    $"레이어명_{layerName}", 
-                    new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0, zValueLayer),
-                    $"{layerName} | 심도 : {layerDepth.ToString("F2")}",
-                    UnitUtils.Convert(300, UnitTypeId.Millimeters, UnitTypeId.Feet));
+            ////레이어명 배치하기
+            //double zValueLayer = UnitUtils.Convert((layerStart - 400), UnitTypeId.Millimeters, UnitTypeId.Feet);
+            //PlaceModelText(doc, 
+            //        $"레이어명_{layerName}", 
+            //        new XYZ(UnitUtils.Convert(550, UnitTypeId.Millimeters, UnitTypeId.Feet), 0, zValueLayer),
+            //        $"{layerName} | 심도 : {layerDepth.ToString("F2")}",
+            //        UnitUtils.Convert(300, UnitTypeId.Millimeters, UnitTypeId.Feet));
 
             //구분선 배치하기
             CreateModelCurveXAxis(doc, skplane.GetPlane().Origin.Z, 5000, 500);
@@ -321,7 +337,7 @@ namespace GeoSurveyRVT.Commands
         /// </summary>
         /// <param name="doc"></param>
         /// <param name="str"></param>
-        public void PlaceModelText(Document doc, string str, XYZ placePoint, string textString, double textHeight)
+        public void PlaceModelText(Document doc, string familyTypeName, XYZ placePoint, string textString, double textHeight)
         {
             //패밀리 템플릿 내에서 패밀리 이름이 TextOnXZ 인 패밀리 찾기
             FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_GenericModel);
@@ -337,7 +353,7 @@ namespace GeoSurveyRVT.Commands
             }
 
             //유형을 복사하고 이름은 str로 하기
-            FamilySymbol newSymbol = sourceSymbol.Duplicate(str) as FamilySymbol;
+            FamilySymbol newSymbol = sourceSymbol.Duplicate(familyTypeName) as FamilySymbol;
 
             //해당 유형의 매개변수중 TextString은 value로 지정하기
             Parameter textStringParam = newSymbol.LookupParameter("TextString");

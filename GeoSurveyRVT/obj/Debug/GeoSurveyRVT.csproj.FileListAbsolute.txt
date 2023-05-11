@@ -30,3 +30,19 @@ C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_
 C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.baml
 C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.baml
 C:\Users\sjak3\OneDrive\JAKK3 Lab\03_DEV\01_Project\05_BIM Addin\01_토목BIM\03_디지털 주상도 제작\Repo\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.g.cs
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\bin\Debug\GeoSurveyRVT.dll
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\bin\Debug\GeoSurveyRVT.pdb
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT.csproj.AssemblyReference.cache
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\DockablePaneUI\ShowBoringTable.g.cs
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\DockablePaneUI\SingleBoring\SingleBoringDetail.g.cs
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.g.cs
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT_MarkupCompile.cache
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT_MarkupCompile.lref
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\DockablePaneUI\ShowBoringTable.baml
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\DockablePaneUI\SingleBoring\SingleBoringDetail.baml
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\RibbonUIForm\BoringSetting\BoringSettingUI.baml
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT.g.resources
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT.csproj.CoreCompileInputs.cache
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT.dll
+F:\Jakkelab_Laptop\02_Dev\01_Project\01_BIM\BIM_GeoSurveyMaker\GeoSurveyRVT\obj\Debug\GeoSurveyRVT.pdb

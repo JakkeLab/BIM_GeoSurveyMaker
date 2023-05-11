@@ -34,11 +34,11 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\02_Templates\01_AECAddin\02_Revit\Revit 2024 DLL\RevitAPI.dll</HintPath>
+      <HintPath>C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\02_Templates\01_AECAddin\02_Revit\Revit 2024 DLL\RevitAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\02_Templates\01_AECAddin\02_Revit\Revit 2024 DLL\RevitAPIUI.dll</HintPath>
+      <HintPath>C:\Users\Jake\OneDrive\JAKK3 Lab\03_DEV\02_Templates\01_AECAddin\02_Revit\Revit 2024 DLL\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
